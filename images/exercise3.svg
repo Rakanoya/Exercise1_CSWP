@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="0 0 300 300" role="img" aria-labelledby="title desc">
+  <title id="title">Mountain landscape illustration</title>
+  <desc id="desc">A peaceful mountain landscape under a bright sky.</desc>
+  <rect width="300" height="300" fill="#f6e8c8"/>
+  <circle cx="232" cy="68" r="32" fill="#e58d52"/>
+  <path d="M0 230 82 128l48 56 40-50 130 96v70H0z" fill="#477d75"/>
+  <path d="m82 128 20 26 18-8 10 38zM170 134l28 33-18-7-12 16-18-16z" fill="#f6e8c8"/>
+  <path d="M0 245c55-22 93-9 142 7 54 18 101 17 158-12v60H0z" fill="#2f5e59"/>
+</svg>
