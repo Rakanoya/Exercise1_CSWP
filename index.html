@@ -8,16 +8,26 @@
    <h1>Contact Us</h1>
    <form method="post" action="https://student2.cs.appstate.edu/crr/3440/homework/h3/contact/">
       <fieldset>
-         <legend>Send a Message</legend>
-         <label for="emailTo">To:</label>
+         <legend>Send Us Feedback</legend>
+         <label for="emailTo">To:
+            <br>
+            <input type="text" id="emailTo" name="emailTo" value="Acme Corporation" readonly>
+         </label>
          <br>
-         <input type="text" id="emailTo" name="emailTo" value="webmaster@example.com" readonly><br>
-         <label for="emailFrom">From:</label>
          <br>
-         <input type="email" id="emailFrom" name="emailFrom" required><br>
-         <label for="emailBody">Message:</label>
+         <label for="emailFrom">Your email address:
+            <br>
+            <input type="email" id="emailFrom" name="emailFrom" required>
+         </label>
          <br>
-         <textarea id="emailBody" name="emailBody" cols="20" rows="5" placeholder="Type your message here ..." required></textarea><br>
+         <br>
+         <label for="emailBody">Message:
+            <br>
+            <textarea id="emailBody" name="emailBody" cols="20" rows="5" placeholder="Type your message here ..." required></textarea>
+         </label>
+      </fieldset>
+      <fieldset>
+         <legend>Survey Questions</legend>
          <label for="referrer">How did you hear about us?</label>
          <br>
          <select id="referrer" name="referrer">
@@ -25,25 +35,38 @@
             <option value="ad">Newspaper ad</option>
             <option value="friend">Friend</option>
             <option value="other">Other</option>
-         </select><br>
-         <label for="newsletter">Subscribe to our newsletter</label>
+         </select>
          <br>
-         <input type="checkbox" id="newsletter" name="newsletter" checked><br>
-         <fieldset>
-            <legend>Rating</legend>
-            <input type="radio" id="rating_1" name="rating" value="1">
-            <label for="rating_1">1</label>
-            <input type="radio" id="rating_2" name="rating" value="2">
-            <label for="rating_2">2</label>
-            <input type="radio" id="rating_3" name="rating" value="3">
-            <label for="rating_3">3</label>
-            <input type="radio" id="rating_4" name="rating" value="4">
-            <label for="rating_4">4</label>
-            <input type="radio" id="rating_5" name="rating" value="5">
-            <label for="rating_5">5</label><br>
-         </fieldset>
-         <input type="submit" value="Send Message">
+         <br>
+         <label for="newsletter">Would you like to receive our newsletter? <br>
+            <input type="checkbox" id="newsletter" name="newsletter">
+            Yes please. Send me the newsletter.
+         </label>
       </fieldset>
+      <fieldset>
+         <legend>Rate Our Service</legend>
+         <label for="rating_1">
+            <input type="radio" id="rating_1" name="rating" value="1"> Very Poor
+         </label>
+         <br>
+         <label for="rating_2">
+            <input type="radio" id="rating_2" name="rating" value="2"> Poor
+         </label>
+         <br>
+         <label for="rating_3">
+            <input type="radio" id="rating_3" name="rating" value="3"> Average
+         </label>
+         <br>
+         <label for="rating_4">
+            <input type="radio" id="rating_4" name="rating" value="4"> Good
+         </label>
+         <br>
+         <label for="rating_5">
+            <input type="radio" id="rating_5" name="rating" value="5"> Very Good
+         </label>
+         <br>
+      </fieldset>
+      <input type="submit" value="Send Message">
    </form>
 </body>
 </html>
