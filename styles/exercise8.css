@@ -9,17 +9,14 @@ body {
 h1 {
    background-color: rgb(0, 0, 0);
    color: rgb(255, 255, 255);
-   padding: 0;
 }
 
 h2 {
    background-color: rgb(130, 160, 130);
    color: rgb(211, 211, 211);
-   padding: 0;
 }
 
 p {
-   padding: 0;
 }
 
 .alpha-06 {
@@ -45,25 +42,21 @@ p {
 blockquote {
    color: rgb(155, 95, 127);
    margin: 1rem 0;
-   padding-left: 0;
    border-left: 0.25rem solid rgb(155, 95, 127);
 }
 
 .fetts {
    background-color: rgb(210, 180, 90);
-   padding: 0;
    border-radius: 0.35rem;
 }
 
 .alpha-values {
    list-style: square;
-   padding-left: 1.5rem;
 }
 
 .alpha-values li {
    background-color: rgb(170, 190, 220);
    margin: 0.4rem 0;
-   padding: 0;
    border-radius: 0.25rem;
 }
 
@@ -74,7 +67,6 @@ dl {
 dt {
    background-color: hsla(120, 30%, 65%, 1);
    color: rgb(35, 50, 35);
-   padding: 0;
    margin-top: 0.7rem;
 }
 
@@ -82,7 +74,6 @@ dd {
    background-color: hsla(190, 45%, 72%, 0.9);
    color: rgb(20, 45, 52);
    margin: 0;
-   padding: 0;
 }
 
 hr {
