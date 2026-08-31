@@ -1,1 +1,55 @@
+@font-face {
+    font-family: "Lobster Two";
+    src: url("../fonts/LobsterTwo-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
 
+@font-face {
+    font-family: "Lobster Two";
+    src: url("../fonts/LobsterTwo-Bold.ttf") format("truetype");
+    font-weight: 700;
+    font-style: normal;
+}
+
+body {
+    margin: 2rem;
+    font-family: Arial, sans-serif;
+}
+
+p {
+    font-size: 2rem;
+    line-height: 1.6;
+    color: #1f1f1f;
+}
+
+p:nth-of-type(1) {
+    font-family: "Lobster Two", Arial, sans-serif;
+    font-weight: 400;
+}
+
+p:nth-of-type(1) > span {
+    color: #2d6cdf;
+}
+
+p:nth-of-type(1) > span > span {
+    color: #d35400;
+    text-decoration: underline;
+    text-transform: uppercase;
+}
+
+p:nth-of-type(2) {
+    font-family: "Lobster Two", Arial, sans-serif;
+    font-weight: 700;
+}
+
+p:nth-of-type(2) > span[go="go"] {
+    color: #c0392b;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+p:nth-of-type(2) > span:last-child {
+    color: #1e8449;
+    text-decoration: underline;
+}
