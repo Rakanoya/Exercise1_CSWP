@@ -1,0 +1,96 @@
+/* Page setup */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+/* --- 2b. NAVIGATION MENU --- */
+ul.nav {
+    list-style-type: none; /* Removes list bullets */
+    padding: 0;
+    margin: 0;
+}
+
+ul.nav li {
+    display: inline-block; /* Makes list items sit side-by-side */
+    border-left: 2px solid black; /* 2px vertical border on left */
+    padding-left: 10px; /* 10px gap inside to the left */
+    padding-right: 10px; /* 10px gap inside to the right */
+}
+
+/* Extra right border on the very last menu item */
+ul.nav li.last-item {
+    border-right: 2px solid black;
+}
+
+ul.nav a {
+    color: black;
+    text-decoration: none; /* Removes underline from links */
+}
+
+ul.nav a:hover {
+    background-color: lightpink; /* Soft magenta background on hover */
+}
+
+/* --- 2a. COURSE SCHEDULE LIST --- */
+ul.schedule {
+    list-style: none; /* Remove default browser bullets */
+    padding-left: 0;
+}
+
+ul.schedule li {
+    position: relative;
+    margin-bottom: 8px; /* Adds space between list items */
+    padding-left: 30px;
+}
+
+ul.schedule li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    background-image: url('../images/colored_image.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+/* --- 3. HORIZONTAL RULE --- */
+hr.divider {
+    width: 50%; /* Only half the page wide */
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: auto; /* auto margins center the hr */
+    margin-right: auto;
+    border: none;
+    height: 3px;
+    background-color: lightgray;
+}
+
+/* --- 4. TABLE STYLING --- */
+table.data {
+    width: 100%; /* Spans full window width */
+    min-width: 500px; /* Won't shrink below 500px */
+    border-collapse: collapse; /* Combines double borders into single lines */
+}
+
+/* Table Header Formatting */
+table.data th {
+    background-color: black;
+    color: white;
+    text-align: left;
+    padding: 10px;
+}
+
+/* Normal Table Cells */
+table.data td {
+    padding: 8px 10px;
+    border: 1px solid gray;
+}
+
+/* Zebra Row Background */
+table.data tr.zebra {
+    background-color: lightgray;
+}
