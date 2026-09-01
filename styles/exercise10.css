@@ -1,13 +1,25 @@
 body { 
+  background-color: yellow;
 } 
-p.first { 
-} 
-p.second { 
-} 
-p.third { 
-} 
-p.fourth { 
-} 
+p.first {
+    background-color: lightblue;
+    padding: 10px;
+    margin: 0px 10px;
+}
+p.second {
+    background-color: lightgreen;
+    padding: 10px;
+    margin: 0px 10px;
+}
+p.third {
+    margin: 20px 30px;
+    padding: 10px;
+}
+p.fourth {
+    margin: 20px 30px;
+    padding: 10px;
+    text-align: left;
+}
 p.fifth { 
   border: 1px solid; 
   padding: 1px; 
