@@ -1,0 +1,15 @@
+body { 
+} 
+p.first { 
+} 
+p.second { 
+} 
+p.third { 
+} 
+p.fourth { 
+} 
+p.fifth { 
+  border: 1px solid; 
+  padding: 1px; 
+  border-image: url(../images/border.png) 1% round; 
+} 
