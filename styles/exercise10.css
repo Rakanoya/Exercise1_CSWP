@@ -37,10 +37,7 @@ p.fourth {
 }
 
 p.fifth {
-    background-color: khaki;
-    border: 15px solid transparent;
-    padding: 10px;
-    border-image: url(../images/border.png) 30% round;
-    margin: 40px 5%;
-    text-align: left;
+    border: 1px solid;
+    padding: 1px;
+    border-image: url(../images/border.png) 1% round;
 }
