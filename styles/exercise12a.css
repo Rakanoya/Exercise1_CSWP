@@ -23,7 +23,7 @@ body {
     width: 800px;
     margin-right: auto;
     margin-left: auto;
-    overflow: auto; /* Contains floated child elements */
+    overflow: auto;
     padding-top: 10px;
     padding-left: 10px;
 }
@@ -32,7 +32,7 @@ div div {
     float: left;
     width: 380px;
     height: 380px;
-    line-height: 380px; /* Centers text vertically */
+    line-height: 380px;
     margin-right: 10px;
     margin-bottom: 10px;
 }
@@ -47,7 +47,7 @@ div div {
     float: none;
     width: 770px;
     height: 50px;
-    line-height: 50px; /* Centers text vertically */
+    line-height: 50px;
     margin-bottom: 10px;
     background-color: #666;
 }
