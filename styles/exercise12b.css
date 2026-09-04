@@ -31,8 +31,8 @@ body {
 
 div div {
     float: left;
-    width: 23.5%; /* Allows 4 boxes to sit side-by-side */
-    height: 12em; /* Height set in ems per PDF directions */
+    width: 23.5%;
+    height: 12em;
     line-height: 12em;
     margin-right: 1%;
     margin-bottom: 1%;
@@ -47,7 +47,7 @@ div div {
     clear: both;
     float: none;
     width: 97.2%;
-    height: 2.5em; /* Height set in ems */
+    height: 2.5em;
     line-height: 2.5em;
     margin-bottom: 1%;
     background-color: #666;
