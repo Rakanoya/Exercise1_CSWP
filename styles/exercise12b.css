@@ -21,7 +21,6 @@ body {
     background-color: #000000;
     color: #FFFFFF;
     border: 5px solid black;
-    /* width: 800px removed as requested */
     margin-right: auto;
     margin-left: auto;
     overflow: auto;
