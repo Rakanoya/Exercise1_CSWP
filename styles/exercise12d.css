@@ -17,49 +17,43 @@ body {
 }
 
 #wrapper {
-    background-color: #000000;
-    color: #FFFFFF;
+    background-color: transparent;
     border: none;
-    width: 800px;
-    margin-right: auto;
-    margin-left: auto;
+    width: auto;
 }
 
 div div {
     position: fixed;
     width: 250px;
     height: 250px;
+    color: white;
 }
 
 #red {
     background-color: #900;
-    top: 60px;
-    left: 50px;
+    top: 10px;
+    left: 10px;
     z-index: 1;
 }
-
 #green {
     background-color: #090;
-    top: 110px;
-    left: 100px;
+    top: 130px;
+    left: 130px;
     z-index: 2;
 }
-
 #blue {
     background-color: #00F;
-    top: 160px;
-    left: 150px;
+    top: 250px;
+    left: 250px;
     z-index: 3;
 }
-
 #purple {
     background-color: #63C;
-    top: 210px;
-    left: 200px;
+    top: 370px;
+    left: 370px;
     z-index: 4;
 }
 
 #footer {
-    background-color: #666;
     visibility: hidden;
 }

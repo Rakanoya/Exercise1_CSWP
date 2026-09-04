@@ -23,33 +23,31 @@ body {
     width: 800px;
     margin-right: auto;
     margin-left: auto;
+    overflow: auto; /* Contains floated child elements */
+    padding-top: 10px;
+    padding-left: 10px;
 }
 
 div div {
     float: left;
-    width: 390px;
-    height: 8em;
-    margin: 5px;
+    width: 380px;
+    height: 380px;
+    line-height: 380px; /* Centers text vertically */
+    margin-right: 10px;
+    margin-bottom: 10px;
 }
 
-#red {
-    background-color: #900;
-}
-
-#green {
-    background-color: #090;
-}
-
-#blue {
-    background-color: #00F;
-}
-
-#purple {
-    background-color: #63C;
-}
+#red { background-color: #900; }
+#green { background-color: #090; }
+#blue { background-color: #00F; }
+#purple { background-color: #63C; }
 
 #footer {
-    background-color: #666;
     clear: both;
-    margin: 5px;
+    float: none;
+    width: 770px;
+    height: 50px;
+    line-height: 50px; /* Centers text vertically */
+    margin-bottom: 10px;
+    background-color: #666;
 }

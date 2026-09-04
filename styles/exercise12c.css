@@ -29,6 +29,7 @@ div div {
     position: fixed;
     width: 200px;
     height: 200px;
+    color: white;
 }
 
 #red {
@@ -36,19 +37,16 @@ div div {
     top: 10px;
     left: 10px;
 }
-
 #green {
     background-color: #090;
     top: 10px;
     right: 10px;
 }
-
 #blue {
     background-color: #00F;
     bottom: 10px;
     left: 10px;
 }
-
 #purple {
     background-color: #63C;
     bottom: 10px;
@@ -57,4 +55,7 @@ div div {
 
 #footer {
     background-color: #666;
+    position: static;
+    height: 40px;
+    width: 100%;
 }
