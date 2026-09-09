@@ -1,0 +1,71 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 20px;
+  background-color: #ffffff;
+  font-family: sans-serif;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-areas:
+    "red green blue purple"
+    "footer footer footer footer";
+  gap: 10px;
+  background-color: #000000;
+  padding: 10px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.wrapper > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  color: white;
+  min-height: 120px;
+}
+
+.red {
+  grid-area: red;
+  background-color: red;
+}
+
+.green {
+  grid-area: green;
+  background-color: green;
+}
+
+.blue {
+  grid-area: blue;
+  background-color: blue;
+}
+
+.purple {
+  grid-area: purple;
+  background-color: purple;
+}
+
+.footer {
+  grid-area: footer;
+  background-color: gray;
+}
+
+.wrapper > .footer {
+  min-height: 60px;
+}
+
+@media (max-width: 499px) {
+  .wrapper {
+    grid-template-areas:
+      "red"
+      "green"
+      "blue"
+      "purple"
+      "footer";
+  }
+}
