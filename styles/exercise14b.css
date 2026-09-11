@@ -1,0 +1,6 @@
+body {
+  background-image: url("images/bike.png");
+  background-repeat: repeat-y;
+  background-position: right top;
+  margin-right: 120px;
+}
