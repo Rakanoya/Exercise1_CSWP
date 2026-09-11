@@ -1,0 +1,6 @@
+body {
+  background-image: url("images/bike.png");
+  background-repeat: repeat-y;
+  background-position: left top;
+  margin-left: 120px; /* Offset text to prevent overlap with the image on the left */
+}
