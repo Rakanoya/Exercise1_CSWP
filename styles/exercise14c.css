@@ -1,6 +1,6 @@
 body {
   background-image: 
-    url("images/wbd1.png"), 
+    url("../images/wbd1.png"), 
     linear-gradient(to right, #707070, #ffffff);
   background-repeat: no-repeat, repeat;
   background-position: right top, left top;
