@@ -1,19 +1,17 @@
-function  startClock() {  
-  //In the  function below, replace the words anonymous_function 
-  //with an actual anonymous function using arrow notation then  
-  //make startClock run using IIFE. 
-  //Note that ALL your code must be in the anonymous function. 
-  //Do not add any code to startClock.  See below for a more detailed explanation. 
-  setInterval((() => { startClock();})(), 1000); 
-} 
-function  startClock() {  
-  //In the  function below, replace the words anonymous_function 
-  //with an actual anonymous function using arrow notation then  
-  //make startClock run using IIFE. 
-  //Note that ALL your code must be in the anonymous function. 
-  //Do not add any code to startClock.  See below for a more detailed explanation. 
-  setInterval(() => {
-    const now = new Date();
-    console.log(now.toLocaleTimeString());
-  }, 1000);
-} 
+function startClock() {
+	setInterval(() => {
+		const now = new Date();
+		const hours = now.getHours();
+		const minutes = String(now.getMinutes()).padStart(2, "0");
+		const seconds = String(now.getSeconds()).padStart(2, "0");
+		document.getElementById("timeheader").textContent = `${hours}:${minutes}:${seconds}`;
+	}, 1000);
+}
+
+function runClock() {
+	(() => {
+		startClock();
+	})();
+}
+
+runClock();
