@@ -173,12 +173,3 @@ function test() {
   ls.showIngredients();
 }
 test();
-
-
-
-
-
-
-
-
-  
