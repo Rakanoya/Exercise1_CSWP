@@ -6,20 +6,26 @@ class BananaadeStand {
     this.gallonsOfWater = gallonsOfWater;
     this.cupsOfSugar = cupsOfSugar;
     this.emptyGlasses = emptyGlasses;
+    this.minBananas = 6;
+    this.minGallonsOfWater = 1;
+    this.minCupsOfSugar = 1;
+    this.minEmptyGlasses = 8;
     this.price = price;    
     this.glassesOfBananaade = 0;
     this.income = 0.0;
   }
   
   makeBananaade() {
-    if (this.bananas >= 6 && this.gallonsOfWater >= 1 
-      && this.cupsOfSugar >= 1 && this.emptyGlasses >= 8) {
-      this.bananas -= 6;
-      this.gallonsOfWater--;
-      this.cupsOfSugar--;
-      this.emptyGlasses -= 8;
-      this.glassesOfBananaade += 8;
-      return 8;
+    if (this.bananas >= this.minBananas
+      && this.gallonsOfWater >= this.minGallonsOfWater
+      && this.cupsOfSugar >= this.minCupsOfSugar
+      && this.emptyGlasses >= this.minEmptyGlasses) {
+      this.bananas -= this.minBananas;
+      this.gallonsOfWater -= this.minGallonsOfWater;
+      this.cupsOfSugar -= this.minCupsOfSugar;
+      this.emptyGlasses -= this.minEmptyGlasses;
+      this.glassesOfBananaade += this.minEmptyGlasses;
+      return this.minEmptyGlasses;
     } 
     else {
       return 0;
@@ -215,6 +221,13 @@ function initEvents() {
     input.onclick = showInput;
     input.onkeydown = addIngredient;
   }
+
+  document.getElementById('btnMakeBananaade').onclick = () => {
+    ls.makeBananaade();
+  };
+  document.getElementById('btnSellBananaade').onclick = () => {
+    ls.sellBananaade();
+  };
 }
 
 function init() {
