@@ -20,7 +20,8 @@ class BananaadeStand {
       this.emptyGlasses -= 8;
       this.glassesOfBananaade += 8;
       return 8;
-    } else {
+    } 
+    else {
       return 0;
     }
   }
@@ -30,13 +31,15 @@ class BananaadeStand {
       this.glassesOfBananaade--;
       this.income += this.price;
       return 1;
-    } else {
+    } 
+    else {
       this.makeBananaade();
       if (this.glassesOfBananaade >= 1) {
         this.glassesOfBananaade--;
         this.income += this.price;
         return 1;
-      } else {
+      } 
+      else {
         return 0;
       }
     }
@@ -145,14 +148,14 @@ class BananaadeStand {
       let temp = this.glassesOfBananaade;
       this.glassesOfBananaade = 0;
       return temp;
-    } else { 
+    } 
+    else { 
       this.glassesOfBananaade -= glassesRequested;
       this.income += this.price * glassesRequested;
       return glassesRequested;
     }    
   }
 
-  // --- Slide 16 Helper Methods ---
   addBananas(number) {
     alert(`Adding ${number} banana(s)`);
   }
@@ -193,11 +196,14 @@ function addIngredient(e) {
 
     if (item === "tbBananas") {
       ls.addBananas(number);
-    } else if (item === "tbWater") {
+    } 
+    else if (item === "tbWater") {
       ls.addWater(number);
-    } else if (item === "tbSugar") {
+    } 
+    else if (item === "tbSugar") {
       ls.addSugar(number);
-    } else if (item === "tbEmptyGlasses") {
+    } 
+    else if (item === "tbEmptyGlasses") {
       ls.addEmptyGlasses(number);
     }
   }
