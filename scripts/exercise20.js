@@ -167,9 +167,57 @@ class BananaadeStand {
   
 }
 
-function test() {
-  let ls = new BananaadeStand(20,10,10,10, 2.0);
-  ls.showAdmin();  
-  ls.showIngredients();
+let ls = new BananaadeStand(20, 10, 10, 10, 2.0);
+
+// Hides all input text boxes with the 'hide_me' class
+function hideAll() {
+  let elements = document.getElementsByClassName("hide_me");
+  for (let ele of elements) {
+    ele.style.visibility = "hidden";
+  }
 }
-test();
+
+// Event handler when an input field is revealed/clicked
+function showInput() {
+  hideAll();
+  this.style.visibility = "visible";
+  this.value = "";
+  this.focus();
+}
+
+// Event handler when key press occurs in an input box
+function addIngredient(e) {
+  if (e.key === "Enter") {
+    let item = e.target.id;
+    let number = e.target.value;
+
+    if (item === "tbBananas") {
+      ls.addBananas(number);
+    } else if (item === "tbWater") {
+      ls.addWater(number);
+    } else if (item === "tbSugar") {
+      ls.addSugar(number);
+    } else if (item === "tbEmptyGlasses") {
+      ls.addEmptyGlasses(number);
+    }
+  }
+}
+
+// Initializes click and keydown event listeners on input fields
+function initEvents() {
+  let inputs = document.querySelectorAll(".hide_me");
+  for (let input of inputs) {
+    input.onclick = showInput;
+    input.onkeydown = addIngredient;
+  }
+}
+
+// Initialization function
+function init() {
+  ls.showAdmin();
+  ls.showIngredients();
+  initEvents();
+  hideAll();
+}
+
+init();
