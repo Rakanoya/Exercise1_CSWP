@@ -10,11 +10,11 @@ class BananaadeStand {
     this.minGallonsOfWater = 1;
     this.minCupsOfSugar = 1;
     this.minEmptyGlasses = 8;
-    this.price = price;    
+    this.price = price;
     this.glassesOfBananaade = 0;
     this.income = 0.0;
   }
-  
+
   makeBananaade() {
     if (this.bananas >= this.minBananas
       && this.gallonsOfWater >= this.minGallonsOfWater
@@ -26,156 +26,120 @@ class BananaadeStand {
       this.emptyGlasses -= this.minEmptyGlasses;
       this.glassesOfBananaade += this.minEmptyGlasses;
       return this.minEmptyGlasses;
-    } 
-    else {
-      return 0;
     }
+
+    return 0;
   }
-  
+
   sellBananaade() {
+    if (this.glassesOfBananaade < 1) {
+      this.makeBananaade();
+    }
+
     if (this.glassesOfBananaade >= 1) {
       this.glassesOfBananaade--;
       this.income += this.price;
       return 1;
-    } 
-    else {
-      this.makeBananaade();
-      if (this.glassesOfBananaade >= 1) {
-        this.glassesOfBananaade--;
-        this.income += this.price;
-        return 1;
-      } 
-      else {
-        return 0;
-      }
     }
+
+    return 0;
   }
-  
+
   showIngredients() {
     let newArticle = document.createElement('article');
-    let newTable = document.createElement('table');   
-    let newRow = document.createElement('tr');
-    let newData = document.createElement('td'); 
+    newArticle.id = 'ingredients';
 
+    let newTable = document.createElement('table');
     let newCap = document.createElement("caption");
     let newText = document.createTextNode('Ingredients');
     newCap.appendChild(newText);
-    newTable.appendChild(newCap);    
+    newTable.appendChild(newCap);
 
-    newText = document.createTextNode("Bananas");
-    newData.appendChild(newText);
-    newRow.appendChild(newData);
-    newData = document.createElement('td');
-    newText = document.createTextNode(this.bananas);
-    newData.appendChild(newText);
-    newRow.appendChild(newData);
-    newTable.appendChild(newRow);
+    const addRow = (label, value) => {
+      let newRow = document.createElement('tr');
 
-    newRow = document.createElement('tr');
-    newData = document.createElement('td');
-    newText = document.createTextNode("Water");
-    newData.appendChild(newText);
-    newRow.appendChild(newData);
-    newData = document.createElement('td');
-    newText = document.createTextNode(this.gallonsOfWater);
-    newData.appendChild(newText);
-    newRow.appendChild(newData);
-    newTable.appendChild(newRow);
+      let labelData = document.createElement('td');
+      labelData.appendChild(document.createTextNode(label));
+      newRow.appendChild(labelData);
 
-    newRow = document.createElement('tr');
-    newData = document.createElement('td');
-    newText = document.createTextNode("Sugar");
-    newData.appendChild(newText);
-    newRow.appendChild(newData);
-    newData = document.createElement('td');
-    newText = document.createTextNode(this.cupsOfSugar);
-    newData.appendChild(newText);
-    newRow.appendChild(newData);
-    newTable.appendChild(newRow);
+      let valueData = document.createElement('td');
+      valueData.appendChild(document.createTextNode(value));
+      newRow.appendChild(valueData);
 
-    newRow = document.createElement('tr');
-    newData = document.createElement('td');
-    newText = document.createTextNode("Empty Glasses");
-    newData.appendChild(newText);
-    newRow.appendChild(newData);
-    newData = document.createElement('td');
-    newText = document.createTextNode(this.emptyGlasses);
-    newData.appendChild(newText);
+      newTable.appendChild(newRow);
+    };
 
-    newRow.appendChild(newData);
-    newTable.appendChild(newRow);
+    addRow("Bananas", this.bananas);
+    addRow("Water", this.gallonsOfWater);
+    addRow("Sugar", this.cupsOfSugar);
+    addRow("Empty Glasses", this.emptyGlasses);
 
     newArticle.appendChild(newTable);
-    let body = document.getElementsByTagName('body')[0]; 
-    body.appendChild(newArticle);    
+    document.body.appendChild(newArticle);
   }
 
-  showAdmin() {   
+  showAdmin() {
     let newArticle = document.createElement('article');
+    newArticle.id = 'admin';
+
     let newH1 = document.createElement("h1");
-    let newText = document.createTextNode('Admin');
-    newH1.appendChild(newText);
-    newArticle.appendChild(newH1);    
-    
+    newH1.appendChild(document.createTextNode('Admin'));
+    newArticle.appendChild(newH1);
+
     let newUl = document.createElement("ul");
-    
+
     let li = document.createElement("li");
-    newText = document.createTextNode(
-      `Price per Glass: $${this.price.toFixed(2)}`);
-    li.appendChild(newText);
+    li.appendChild(document.createTextNode(
+      `Price per Glass: $${this.price.toFixed(2)}`));
     newUl.appendChild(li);
-    
+
     li = document.createElement("li");
-    newText = document.createTextNode(
-      `Glasses of Bananaade: ${this.glassesOfBananaade}`);
-    li.appendChild(newText);
+    li.appendChild(document.createTextNode(
+      `Glasses of Bananaade: ${this.glassesOfBananaade}`));
     newUl.appendChild(li);
-    
+
     li = document.createElement("li");
-    newText = document.createTextNode(
-      `Income: $${this.income.toFixed(2)}`);
-    li.appendChild(newText);
+    li.appendChild(document.createTextNode(
+      `Income: $${this.income.toFixed(2)}`));
     newUl.appendChild(li);
-    
+
     newArticle.appendChild(newUl);
-    
-    let body = document.getElementsByTagName('body')[0]; 
-    body.appendChild(newArticle);
-  }  
+    document.body.appendChild(newArticle);
+  }
 
   sellMoreBananaade(glassesRequested) {
     if (glassesRequested > 8) glassesRequested = 8;
-    
-    if (this.glassesOfBananaade < glassesRequested) 
+
+    if (this.glassesOfBananaade < glassesRequested) {
       this.makeBananaade();
-    
+    }
+
     if (this.glassesOfBananaade < glassesRequested) {
       this.income += this.price * this.glassesOfBananaade;
       let temp = this.glassesOfBananaade;
       this.glassesOfBananaade = 0;
       return temp;
-    } 
-    else { 
-      this.glassesOfBananaade -= glassesRequested;
-      this.income += this.price * glassesRequested;
-      return glassesRequested;
-    }    
+    }
+
+    this.glassesOfBananaade -= glassesRequested;
+    this.income += this.price * glassesRequested;
+    return glassesRequested;
   }
 
   addBananas(number) {
-    alert(`Adding ${number} banana(s)`);
+    this.bananas += Number(number);
   }
 
   addWater(number) {
-    alert(`Adding ${number} gallons of water`);
+    this.gallonsOfWater += Number(number);
   }
 
   addSugar(number) {
-    alert(`Adding ${number} cups of sugar`);
+    this.cupsOfSugar += Number(number);
   }
 
   addEmptyGlasses(number) {
-    alert(`Adding ${number} empty glasses`);
+    this.emptyGlasses += Number(number);
   }
 }
 
@@ -195,24 +159,38 @@ function showInput() {
   this.focus();
 }
 
-function addIngredient(e) {
-  if (e.key === "Enter") {
-    let item = e.target.id;
-    let number = e.target.value;
+function refreshDisplay() {
+  document.getElementById('admin')?.remove();
+  document.getElementById('ingredients')?.remove();
+  ls.showAdmin();
+  ls.showIngredients();
+}
 
-    if (item === "tbBananas") {
-      ls.addBananas(number);
-    } 
-    else if (item === "tbWater") {
-      ls.addWater(number);
-    } 
-    else if (item === "tbSugar") {
-      ls.addSugar(number);
-    } 
-    else if (item === "tbEmptyGlasses") {
-      ls.addEmptyGlasses(number);
-    }
+function addIngredient(e) {
+  if (e.key !== "Enter") {
+    return;
   }
+
+  let number = Number(e.target.value);
+  if (!Number.isFinite(number) || number < 0) {
+    e.target.value = "";
+    return;
+  }
+
+  let item = e.target.id;
+  if (item === "tbBananas") {
+    ls.addBananas(number);
+  } else if (item === "tbWater") {
+    ls.addWater(number);
+  } else if (item === "tbSugar") {
+    ls.addSugar(number);
+  } else if (item === "tbEmptyGlasses") {
+    ls.addEmptyGlasses(number);
+  }
+
+  e.target.value = "";
+  e.target.style.visibility = 'hidden';
+  refreshDisplay();
 }
 
 function initEvents() {
@@ -224,9 +202,12 @@ function initEvents() {
 
   document.getElementById('btnMakeBananaade').onclick = () => {
     ls.makeBananaade();
+    refreshDisplay();
   };
+
   document.getElementById('btnSellBananaade').onclick = () => {
     ls.sellBananaade();
+    refreshDisplay();
   };
 }
 
