@@ -1,4 +1,5 @@
 "use strict";
+
 class BananaadeStand {
   constructor(bananas, gallonsOfWater, cupsOfSugar, emptyGlasses, price) {
     this.bananas = bananas;
@@ -12,7 +13,7 @@ class BananaadeStand {
   
   makeBananaade() {
     if (this.bananas >= 6 && this.gallonsOfWater >= 1 
-      && this.cupsOfSugar >= 1 && this.emptyGlasses >= 8)    {
+      && this.cupsOfSugar >= 1 && this.emptyGlasses >= 8) {
       this.bananas -= 6;
       this.gallonsOfWater--;
       this.cupsOfSugar--;
@@ -31,7 +32,7 @@ class BananaadeStand {
       return 1;
     } else {
       this.makeBananaade();
-      if (this.glassesOfBananaade >=1) {
+      if (this.glassesOfBananaade >= 1) {
         this.glassesOfBananaade--;
         this.income += this.price;
         return 1;
@@ -41,12 +42,8 @@ class BananaadeStand {
     }
   }
   
-  showIngredients()
-  {
-    
+  showIngredients() {
     let newArticle = document.createElement('article');
-    
-
     let newTable = document.createElement('table');   
     let newRow = document.createElement('tr');
     let newData = document.createElement('td'); 
@@ -56,15 +53,14 @@ class BananaadeStand {
     newCap.appendChild(newText);
     newTable.appendChild(newCap);    
 
-
     newText = document.createTextNode("Bananas");
     newData.appendChild(newText);
     newRow.appendChild(newData);
     newData = document.createElement('td');
-    newText=document.createTextNode(this.bananas);
+    newText = document.createTextNode(this.bananas);
     newData.appendChild(newText);
     newRow.appendChild(newData);
-    newTable.appendChild(newRow)
+    newTable.appendChild(newRow);
 
     newRow = document.createElement('tr');
     newData = document.createElement('td');
@@ -75,7 +71,7 @@ class BananaadeStand {
     newText = document.createTextNode(this.gallonsOfWater);
     newData.appendChild(newText);
     newRow.appendChild(newData);
-    newTable.appendChild(newRow)
+    newTable.appendChild(newRow);
 
     newRow = document.createElement('tr');
     newData = document.createElement('td');
@@ -86,7 +82,7 @@ class BananaadeStand {
     newText = document.createTextNode(this.cupsOfSugar);
     newData.appendChild(newText);
     newRow.appendChild(newData);
-    newTable.appendChild(newRow)
+    newTable.appendChild(newRow);
 
     newRow = document.createElement('tr');
     newData = document.createElement('td');
@@ -98,15 +94,14 @@ class BananaadeStand {
     newData.appendChild(newText);
 
     newRow.appendChild(newData);
-    newTable.appendChild(newRow)
+    newTable.appendChild(newRow);
 
     newArticle.appendChild(newTable);
     let body = document.getElementsByTagName('body')[0]; 
     body.appendChild(newArticle);    
   }
-  showAdmin()
-  {   
-  
+
+  showAdmin() {   
     let newArticle = document.createElement('article');
     let newH1 = document.createElement("h1");
     let newText = document.createTextNode('Admin');
@@ -138,54 +133,59 @@ class BananaadeStand {
     let body = document.getElementsByTagName('body')[0]; 
     body.appendChild(newArticle);
   }  
+
   sellMoreBananaade(glassesRequested) {
-    
-    //Can only sell 8 at a time.
     if (glassesRequested > 8) glassesRequested = 8;
     
-    //If we don't have enough, make some more.
     if (this.glassesOfBananaade < glassesRequested) 
       this.makeBananaade();
     
     if (this.glassesOfBananaade < glassesRequested) {
-      //We dont have enough and we have tried to make more so
-      //there must not be enough ingredients. 
-      //Sell the glasses we have
       this.income += this.price * this.glassesOfBananaade;
       let temp = this.glassesOfBananaade;
       this.glassesOfBananaade = 0;
       return temp;
-      
     } else { 
-      //We do have enough.  Sell the requested amount.
       this.glassesOfBananaade -= glassesRequested;
       this.income += this.price * glassesRequested;
       return glassesRequested;
     }    
   }
-  
-  
+
+  // --- Slide 16 Helper Methods ---
+  addBananas(number) {
+    alert(`Adding ${number} banana(s)`);
+  }
+
+  addWater(number) {
+    alert(`Adding ${number} gallons of water`);
+  }
+
+  addSugar(number) {
+    alert(`Adding ${number} cups of sugar`);
+  }
+
+  addEmptyGlasses(number) {
+    alert(`Adding ${number} empty glasses`);
+  }
 }
 
 let ls = new BananaadeStand(20, 10, 10, 10, 2.0);
 
-// Hides all input text boxes with the 'hide_me' class
 function hideAll() {
-  let elements = document.getElementsByClassName("hide_me");
+  let elements = document.getElementsByClassName('hide_me');
   for (let ele of elements) {
-    ele.style.visibility = "hidden";
+    ele.style.visibility = 'hidden';
   }
 }
 
-// Event handler when an input field is revealed/clicked
 function showInput() {
   hideAll();
-  this.style.visibility = "visible";
+  this.style.visibility = 'visible';
   this.value = "";
   this.focus();
 }
 
-// Event handler when key press occurs in an input box
 function addIngredient(e) {
   if (e.key === "Enter") {
     let item = e.target.id;
@@ -203,16 +203,14 @@ function addIngredient(e) {
   }
 }
 
-// Initializes click and keydown event listeners on input fields
 function initEvents() {
-  let inputs = document.querySelectorAll(".hide_me");
+  let inputs = document.querySelectorAll('.hide_me');
   for (let input of inputs) {
     input.onclick = showInput;
     input.onkeydown = addIngredient;
   }
 }
 
-// Initialization function
 function init() {
   ls.showAdmin();
   ls.showIngredients();
