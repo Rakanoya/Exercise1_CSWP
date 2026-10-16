@@ -263,6 +263,32 @@ function initEvents() {
     ls.sellBananaade();
     refreshDisplay();
   });
+
+  document.getElementById("btnSellMoreBananaade").addEventListener("click", sellMoreBananaade);
+  document.getElementById("tbSellBananaade").addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      sellMoreBananaade();
+    }
+  });
+}
+
+function sellMoreBananaade() {
+  let input = document.getElementById("tbSellBananaade");
+  let message = document.getElementById("saleMessage");
+  let requested = Number(input.value);
+
+  if (!Number.isInteger(requested) || requested < 1) {
+    message.textContent = "Enter a whole number of glasses to sell.";
+    input.focus();
+    return;
+  }
+
+  let sold = ls.sellMoreBananaade(requested);
+  message.textContent = sold === requested
+    ? `Sold ${sold} glass${sold === 1 ? "" : "es"} of bananaade!`
+    : `Only ${sold} of ${requested} requested glass${requested === 1 ? "" : "es"} available.`;
+  input.value = "1";
+  refreshDisplay();
 }
 
 function init() {

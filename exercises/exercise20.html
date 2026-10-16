@@ -7,39 +7,59 @@
   <script defer src="../scripts/exercise20.js"></script>
 </head>
 <body>
-  <h1>The World's BEST Bananaade!</h1>
+  <main class="stand">
+    <header class="hero">
+      <p class="eyebrow">Fresh from the stand</p>
+      <h1>The World's BEST Bananaade!</h1>
+      <p>Mix a batch, then serve one glass or a whole thirsty crowd.</p>
+    </header>
 
-  <section>
-    <h2>Add Ingredients</h2>
-    <label for="tbBananas">
-      <img src="../images/plus_light.png" alt="Add">
-      <span class="clickable">Add bananas</span>
-      <input id="tbBananas" class="hide_me" type="number">
-    </label>
+    <div class="dashboard">
+      <section class="card">
+        <h2>Add Ingredients</h2>
+        <p class="instruction">Choose an ingredient, enter an amount, and press Enter.</p>
+        <label for="tbBananas">
+          <img src="../images/plus_light.png" alt="">
+          <span class="clickable">Add bananas</span>
+          <input id="tbBananas" class="hide_me" type="number" min="1" step="1" inputmode="numeric">
+        </label>
 
-    <label for="tbWater">
-      <img src="../images/plus_light.png" alt="Add">
-      <span class="clickable">Add gallons of water</span>
-      <input id="tbWater" class="hide_me" type="number">
-    </label>
+        <label for="tbWater">
+          <img src="../images/plus_light.png" alt="">
+          <span class="clickable">Add gallons of water</span>
+          <input id="tbWater" class="hide_me" type="number" min="1" step="1" inputmode="numeric">
+        </label>
 
-    <label for="tbSugar">
-      <img src="../images/plus_light.png" alt="Add">
-      <span class="clickable">Add cups of sugar</span>
-      <input id="tbSugar" class="hide_me" type="number">
-    </label>
+        <label for="tbSugar">
+          <img src="../images/plus_light.png" alt="">
+          <span class="clickable">Add cups of sugar</span>
+          <input id="tbSugar" class="hide_me" type="number" min="1" step="1" inputmode="numeric">
+        </label>
 
-    <label for="tbEmptyGlasses">
-      <img src="../images/plus_light.png" alt="Add">
-      <span class="clickable">Add empty glasses</span>
-      <input id="tbEmptyGlasses" class="hide_me" type="number">
-    </label>
-  </section>
+        <label for="tbEmptyGlasses">
+          <img src="../images/plus_light.png" alt="">
+          <span class="clickable">Add empty glasses</span>
+          <input id="tbEmptyGlasses" class="hide_me" type="number" min="1" step="1" inputmode="numeric">
+        </label>
+      </section>
 
-  <section>
-    <h2>Controls</h2>
-    <button id="btnMakeBananaade" class="button" type="button">Make Bananaade</button>
-    <button id="btnSellBananaade" class="button" type="button">Sell Bananaade</button>
-  </section>
+      <section class="card">
+        <h2>Serve Bananaade</h2>
+        <p class="instruction">Make a batch, then sell as many glasses as your customers want.</p>
+        <div class="actions">
+          <button id="btnMakeBananaade" class="button button-primary" type="button">Make Bananaade</button>
+          <button id="btnSellBananaade" class="button" type="button">Sell One Glass</button>
+        </div>
+        <div class="bulk-sale">
+          <label for="tbSellBananaade">Glasses to sell</label>
+          <div class="sale-form">
+            <input id="tbSellBananaade" type="number" min="1" step="1" value="1" inputmode="numeric">
+            <button id="btnSellMoreBananaade" class="button button-accent" type="button">Sell More</button>
+          </div>
+          <p id="saleMessage" class="message" role="status" aria-live="polite"></p>
+        </div>
+      </section>
+    </div>
+  </main>
 </body>
 </html>
