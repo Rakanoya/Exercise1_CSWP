@@ -13,7 +13,7 @@ label {
   cursor: pointer;
 }
 
-button {
+.button {
   display: block;
   margin-bottom: 6px;
 }

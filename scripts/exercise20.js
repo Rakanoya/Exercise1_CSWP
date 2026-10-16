@@ -31,10 +31,7 @@ class BananaadeStand {
     this.emptyGlasses -= this.minEmptyGlasses;
     this.glassesOfBananaade += this.minEmptyGlasses;
 
-    this.updateInventory("Bananas", this.bananas, this.minBananas);
-    this.updateInventory("Water", this.gallonsOfWater, this.minGallonsOfWater);
-    this.updateInventory("Sugar", this.cupsOfSugar, this.minCupsOfSugar);
-    this.updateInventory("Empty Glasses", this.emptyGlasses, this.minEmptyGlasses);
+    this.updateAllInventory();
     this.updateAdmin();
 
     return this.minEmptyGlasses;
@@ -130,30 +127,27 @@ class BananaadeStand {
       document.body.appendChild(section);
     }
 
-    this.updateInventory("Bananas", this.bananas, this.minBananas);
-    this.updateInventory("Water", this.gallonsOfWater, this.minGallonsOfWater);
-    this.updateInventory("Sugar", this.cupsOfSugar, this.minCupsOfSugar);
-    this.updateInventory("Empty Glasses", this.emptyGlasses, this.minEmptyGlasses);
+    this.updateAllInventory();
   }
 
   addBananas(number) {
     this.bananas += number;
-    this.updateInventory("Bananas", this.bananas, this.minBananas);
+    this.updateAllInventory();
   }
 
   addWater(number) {
     this.gallonsOfWater += number;
-    this.updateInventory("Water", this.gallonsOfWater, this.minGallonsOfWater);
+    this.updateAllInventory();
   }
 
   addSugar(number) {
     this.cupsOfSugar += number;
-    this.updateInventory("Sugar", this.cupsOfSugar, this.minCupsOfSugar);
+    this.updateAllInventory();
   }
 
   addEmptyGlasses(number) {
     this.emptyGlasses += number;
-    this.updateInventory("Empty Glasses", this.emptyGlasses, this.minEmptyGlasses);
+    this.updateAllInventory();
   }
 
   updateAdmin() {
@@ -193,6 +187,13 @@ class BananaadeStand {
         return;
       }
     }
+  }
+
+  updateAllInventory() {
+    this.updateInventory("Bananas", this.bananas, this.minBananas);
+    this.updateInventory("Water", this.gallonsOfWater, this.minGallonsOfWater);
+    this.updateInventory("Sugar", this.cupsOfSugar, this.minCupsOfSugar);
+    this.updateInventory("Empty Glasses", this.emptyGlasses, this.minEmptyGlasses);
   }
 }
 
