@@ -9,11 +9,30 @@
 <body>
   <main>
     <h1>ToDo Lister</h1>
-      <div>
-        <input id="addText" type="text">
-        <button id="addButton">Add Item</button>
-        <button id="clearButton">Clear All</button>
-        <ul id="uList"></ul>
+      <div class="todo-app">
+        <div class="add-form">
+          <label class="visually-hidden" for="addText">New task</label>
+          <input id="addText" type="text" placeholder="What needs to be done?">
+          <button id="addButton" type="button">Add Item</button>
+        </div>
+        <p id="itemsLeft" class="items-left" aria-live="polite"></p>
+        <nav class="filters" aria-label="Filter tasks">
+          <button class="filterButton active" type="button" data-filter="all" aria-pressed="true">All</button>
+          <button class="filterButton" type="button" data-filter="active" aria-pressed="false">Active</button>
+          <button class="filterButton" type="button" data-filter="completed" aria-pressed="false">Completed</button>
+        </nav>
+        <section id="activeSection" aria-labelledby="activeHeading">
+          <h2 id="activeHeading">Active</h2>
+          <ul id="activeList"></ul>
+        </section>
+        <section id="completedSection" aria-labelledby="completedHeading">
+          <h2 id="completedHeading">Completed</h2>
+          <ul id="completedList"></ul>
+        </section>
+        <div class="list-actions">
+          <button id="clearCompletedButton" type="button">Clear Completed</button>
+          <button id="clearButton" type="button">Clear All</button>
+        </div>
       </div>
   </main>
 </body>
