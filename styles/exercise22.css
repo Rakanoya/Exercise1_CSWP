@@ -53,6 +53,10 @@ label img {
   text-decoration: underline;
 }
 
+.clickable.hover {
+  color: #003d7a;
+}
+
 input {
   width: 55px;
   padding: 5px;

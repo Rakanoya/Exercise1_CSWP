@@ -199,19 +199,13 @@ class BananaadeStand {
 
 let ls = new BananaadeStand(20, 10, 10, 10, 2.0);
 
-function hideAll() {
-  let elements = document.getElementsByClassName("hide_me");
-  for (let ele of elements) {
-    ele.style.visibility = "hidden";
-    ele.style.backgroundColor = "";
-  }
-}
-
 function showInput() {
-  hideAll();
-  this.style.visibility = "visible";
-  this.value = "";
-  this.focus();
+  let $input = $(this);
+  $(".hide_me").not($input).css("backgroundColor", "").slideUp();
+  $input.val("");
+  $input.slideDown(function () {
+    $(this).focus();
+  });
 }
 
 function refreshDisplay() {
@@ -224,14 +218,15 @@ function addIngredient(e) {
     return;
   }
 
+  let $target = $(e.target);
   let re = /^[0-9]+$/;
-  if (!re.test(e.target.value)) {
-    e.target.style.backgroundColor = "#FFAAAA";
+  if (!re.test($target.val())) {
+    $target.css("backgroundColor", "#FFAAAA");
     return;
   }
 
-  let amount = +e.target.value;
-  e.target.style.backgroundColor = "";
+  let amount = +$target.val();
+  $target.css("backgroundColor", "");
 
   if (e.target.id === "tbBananas") {
     ls.addBananas(amount);
@@ -243,51 +238,68 @@ function addIngredient(e) {
     ls.addEmptyGlasses(amount);
   }
 
-  hideAll();
+  $(".hide_me").css("backgroundColor", "").slideUp();
   refreshDisplay();
 }
 
 function initEvents() {
-  let inputs = document.querySelectorAll(".hide_me");
-  for (let input of inputs) {
-    input.addEventListener("click", showInput);
-    input.addEventListener("keydown", addIngredient);
-  }
+  $(".hide_me").on("click", showInput).on("keydown", addIngredient);
 
-  document.getElementById("btnMakeBananaade").addEventListener("click", () => {
+  let buttons = $("button");
+  $(buttons[0]).on("click", () => {
     ls.makeBananaade();
     refreshDisplay();
   });
 
-  document.getElementById("btnSellBananaade").addEventListener("click", () => {
+  $(buttons[1]).on("click", () => {
     ls.sellBananaade();
     refreshDisplay();
   });
 
-  document.getElementById("btnSellMoreBananaade").addEventListener("click", sellMoreBananaade);
-  document.getElementById("tbSellBananaade").addEventListener("keydown", (e) => {
+  $(buttons[2]).on("click", sellMoreBananaade);
+  $("#tbSellBananaade").on("keydown", (e) => {
     if (e.key === "Enter") {
       sellMoreBananaade();
     }
   });
 }
 
+function initImageMouseover() {
+  const swap = ($img, from, to) => {
+    $img.attr("src", $img.attr("src").replace(from, to));
+  };
+
+  $("label img").on("mouseover", function () {
+    swap($(this), "plus_light", "plus_dark");
+    $(this).next().addClass("hover");
+  }).on("mouseout", function () {
+    swap($(this), "plus_dark", "plus_light");
+    $(this).next().removeClass("hover");
+  });
+
+  $("label .clickable").on("mouseover", function () {
+    swap($(this).prev(), "plus_light", "plus_dark");
+  }).on("mouseout", function () {
+    swap($(this).prev(), "plus_dark", "plus_light");
+  });
+}
+
 function sellMoreBananaade() {
-  let input = document.getElementById("tbSellBananaade");
-  let message = document.getElementById("saleMessage");
-  let requested = Number(input.value);
+  let $input = $("#tbSellBananaade");
+  let $message = $("#saleMessage");
+  let requested = Number($input.val());
 
   if (!Number.isInteger(requested) || requested < 1) {
-    message.textContent = "Enter a whole number of glasses to sell.";
-    input.focus();
+    $message.text("Enter a whole number of glasses to sell.");
+    $input.focus();
     return;
   }
 
   let sold = ls.sellMoreBananaade(requested);
-  message.textContent = sold === requested
+  $message.text(sold === requested
     ? `Sold ${sold} glass${sold === 1 ? "" : "es"} of bananaade!`
-    : `Only ${sold} of ${requested} requested glass${requested === 1 ? "" : "es"} available.`;
-  input.value = "1";
+    : `Only ${sold} of ${requested} requested glass${requested === 1 ? "" : "es"} available.`);
+  $input.val("1");
   refreshDisplay();
 }
 
@@ -295,7 +307,8 @@ function init() {
   ls.showAdmin();
   ls.showIngredients();
   initEvents();
-  hideAll();
+  initImageMouseover();
+  $(".hide_me").slideUp();
 }
 
-init();
+$(init);
