@@ -1,3 +1,4 @@
+const ce = React.createElement;
 
 function TableCaption(props) {
   return ce('caption', null, props.caption);
