@@ -5,23 +5,28 @@ function TableCaption(props) {
 }
 
 function TableRow(props) {
-  let cells = props.row.map((cellText, index) => 
-    ce(props.isHeader ? 'th' : 'td', { key: index }, cellText)
-  );
+  let cells = [];
+  for (let key in props.row) {
+    if (Object.prototype.hasOwnProperty.call(props.row, key)) {
+      cells.push(ce('td', { key }, props.row[key]));
+    }
+  }
   return ce('tr', null, cells);
 }
 
 function TableBody(props) {
-  let rows = props.data.map((item, index) => {
-    let rowValues = Object.values(item);
-    return ce(TableRow, { key: index, row: rowValues, isHeader: false });
-  });
+  let rows = [];
+  for (let index in props.data) {
+    rows.push(ce(TableRow, { key: index, row: props.data[index] }));
+  }
   return ce('tbody', null, rows);
 }
 
 function TableHeader(props) {
-  let headerRow = ce(TableRow, { row: props.headers, isHeader: true });
-  return ce('thead', null, headerRow);
+  let headerCells = props.headers.map((header, index) =>
+    ce('th', { key: index }, header)
+  );
+  return ce('thead', null, ce('tr', null, headerCells));
 }
 
 function MakeTable(props) {
